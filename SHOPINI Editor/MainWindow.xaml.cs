@@ -400,7 +400,9 @@ namespace SHOPINI_Editor
 
                     tempindex1 = shopini_string.IndexOfAny(numberchars, tempindex2);
                     tempindex2 = shopini_string.IndexOf("\n", tempindex1);
-                    float.TryParse(shopini_string.Substring(tempindex1, tempindex2 - tempindex1), out tempprice); //price
+                    //float.TryParse(shopini_string.Substring(tempindex1, tempindex2 - tempindex1), out tempprice); //price
+                    tempprice = float.Parse(shopini_string.Substring(tempindex1, tempindex2 - tempindex1), CultureInfo.InvariantCulture);
+
 
                 }
                 else
@@ -411,7 +413,7 @@ namespace SHOPINI_Editor
                 shopini_levels = shopini_levels.Append(templevel).ToArray();
                 shopini_prices = shopini_prices.Append(tempprice).ToArray();
 
-                ListBoxMain1.Items.Add(String.Format(formatstring, tempclassname, templevel, tempprice, shopini_classnames.Count() - 1));
+                ListBoxMain1.Items.Add(String.Format(formatstring, tempclassname, templevel, tempprice.ToString(CultureInfo.InvariantCulture), shopini_classnames.Count() - 1));
 
                 tempindex1 = shopini_string.IndexOf("\nItem", tempindex2);
                 if (tempindex1 < 0)
@@ -539,7 +541,7 @@ namespace SHOPINI_Editor
 
                 foreach (string item in shopini_classnames)
                 {
-                    sw.WriteLine(String.Format(write_format, item, shopini_levels[i], shopini_prices[i]));
+                    sw.WriteLine(String.Format(write_format, item, shopini_levels[i], shopini_prices[i].ToString("F2", CultureInfo.InvariantCulture)));
                     i++;
                 }
 
@@ -725,7 +727,9 @@ namespace SHOPINI_Editor
             int level = 1;
             float price = 0;
             Int32.TryParse(LevelTextBox.Text, out level);
-            float.TryParse(PriceTextBox.Text, out price);
+            //float.TryParse(PriceTextBox.Text, out price);
+            price = float.Parse(PriceTextBox.Text, CultureInfo.InvariantCulture);
+            //Console.WriteLine(price.ToString("F2", CultureInfo.InvariantCulture));
             if (add)
             {
                 if (!((ClassnameComboBox.Text == "...") || (LevelTextBox.Text == "...") || (PriceTextBox.Text == "...")))
@@ -805,7 +809,7 @@ namespace SHOPINI_Editor
                     {
                         shopini_prices[item_index] = price;
                     }
-                    ListBoxMain1.Items[item_index] = (String.Format(formatstring, shopini_classnames[item_index], shopini_levels[item_index], shopini_prices[item_index], item_index));
+                    ListBoxMain1.Items[item_index] = (String.Format(formatstring, shopini_classnames[item_index], shopini_levels[item_index], shopini_prices[item_index].ToString(CultureInfo.InvariantCulture), item_index));
                 }
 
                 changesnotsaved = "*";
@@ -906,7 +910,7 @@ namespace SHOPINI_Editor
                 ButtonApplyChange.IsEnabled = true;
                 ClassnameComboBox.Text = shopini_classnames[ListBoxMain1.SelectedIndex];
                 realname_fireblank = true;
-                PriceTextBox.Text = shopini_prices[ListBoxMain1.SelectedIndex].ToString();
+                PriceTextBox.Text = shopini_prices[ListBoxMain1.SelectedIndex].ToString(CultureInfo.InvariantCulture);
                 LevelTextBox.Text = shopini_levels[ListBoxMain1.SelectedIndex].ToString();
             }
             else
