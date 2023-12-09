@@ -1,0 +1,73 @@
+﻿<Window x:Name="AppMainWindow" x:Class="SHOPINI_Editor.MainWindow"  x:FieldModifier="public"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SHOPINI_Editor"
+        xmlns:res="clr-namespace:SHOPINI_Editor.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static res:Resources.main_form}" Height="612.833" Width="787" MinWidth="400" MinHeight="200" Activated="Window_Activated" Closing="Window_Closing" Closed="AppMainWindow_Closed">
+    
+    <Window.CommandBindings>
+        <CommandBinding
+  Command="{x:Static  local:MainWindow.SaveShopCommand}"
+            CanExecute="SaveShopCommand_CanExecute"
+  Executed="SaveShopCommand_Executed"
+  />
+        </Window.CommandBindings>
+
+        <Window.InputBindings>
+        <KeyBinding Command="local:MainWindow.SaveShopCommand" Modifiers="Control" Key="S"/>
+    </Window.InputBindings>
+
+    <Grid Margin="0,0,0,6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="294*"/>
+            <ColumnDefinition Width="136*"/>
+            <ColumnDefinition Width="164*"/>
+        </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Top" Grid.ColumnSpan="4">
+            <MenuItem x:Name="MenuItem_file" Header="{x:Static res:Resources.file}">
+                <MenuItem x:Name="MenuItem_createshop" Header="{x:Static res:Resources.create_shop}" Click="CreateShop"/>
+                <MenuItem x:Name="MenuItem_openshop" Header="{x:Static res:Resources.open_shop}" Click="OpenShop"/>
+                <MenuItem x:Name="MenuItem_saveshop" Header="{x:Static res:Resources.save_shop}" Click="SaveShop" InputGestureText="Ctrl+S"/>
+                <MenuItem x:Name="MenuItem_saveshopas" Header="{x:Static res:Resources.save_shop_as}" Click="SaveShopAs"/>
+                <Separator/>
+                <MenuItem x:Name="MenuItem_exit" Header="{x:Static res:Resources.exit}" Click="ExitApp"/>
+            </MenuItem>
+            <MenuItem Header="English" Width="56" Click="MenuItem_Click"/>
+            <MenuItem Header="Русский" Click="MenuItem_Click_1"/>
+            <MenuItem x:Name="MenuItemHelp" Header="{x:Static res:Resources.help_menuitem}" Click="MenuItemHelp_Click"/>
+        </Menu>
+        <ListBox x:Name="ListBoxMain1" x:FieldModifier="public" Margin="10,203,10,85" MouseDoubleClick="ListBoxMain1_MouseDoubleClick" ScrollViewer.ScrollChanged="listBox_ScrollChanged" Grid.ColumnSpan="4" HorizontalContentAlignment="Stretch" SelectionChanged="ListBoxMain1_SelectionChanged" KeyUp="ListBoxMain1_KeyUp" SelectionMode="Extended"/>
+        <Label x:Name="ITEMINFO_label" Content="{x:Static res:Resources.iteminfo_not_ok}" Margin="10,23,0,0" VerticalAlignment="Top" Foreground="Black" HorizontalAlignment="Left" Width="126"/>
+        <Label x:Name="Label_itemtext" Content="{x:Static res:Resources.item_text}" Margin="10,172,0,0" HorizontalAlignment="Left" Width="364" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label x:Name="Label_leveltext" Content="{x:Static res:Resources.level_text}" Margin="194,172,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="58" Grid.Column="1"/>
+        <Label x:Name="Label_pricetext" Content="{x:Static res:Resources.price_text}" Margin="257,172,10,0" Height="26" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Label x:Name="Label_rusname" Content="{x:Static res:Resources.shopname_text_ru}" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxShopnameRus" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Margin="167,52,0,0" Text="Тест" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBoxShopnameEng" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Margin="167,78,0,0" Text="Test" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <Label x:Name="Label_pricecoeff" Content="{x:Static res:Resources.pricecoeff_text}" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxPriceCoeff" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Margin="167,133,0,0" Text="0" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="TypeComboBox" HorizontalAlignment="Left" Width="207" Margin="167,106,0,0" SelectedIndex="0" Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionChanged="TypeComboBox_SelectionChanged">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+        </ComboBox>
+        <Label x:Name="Label_typetext" Content="{x:Static res:Resources.type_text}" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ClassnameComboBox" HorizontalAlignment="Left" Margin="11,0,0,32" Width="350" StaysOpenOnEdit="True" SelectionChanged="ClassnameComboBox_SelectionChanged" Grid.ColumnSpan="2" Height="22" VerticalAlignment="Bottom" KeyDown="ClassnameComboBox_KeyUp" MouseEnter="ClassnameComboBox_MouseEnter" GotFocus="ClassnameComboBox_GotFocus" IsEditable="True" IsTextSearchEnabled="False"/>
+        <ComboBox x:Name="RealNameComboBox" HorizontalAlignment="Left" Margin="11,0,0,6" Width="350" IsEditable="True" StaysOpenOnEdit="True" SelectionChanged="RealNameComboBox_SelectionChanged" Height="22" VerticalAlignment="Bottom" Grid.ColumnSpan="2" KeyDown="RealNameComboBox_KeyUp" TextInput="RealNameComboBox_TextInput" GotFocus="RealNameComboBox_GotFocus" IsTextSearchEnabled="False"/>
+        <Label x:Name="Predmetlabel" Content="{x:Static res:Resources.item_text}" HorizontalAlignment="Left" Margin="11,0,0,54" VerticalAlignment="Bottom"/>
+        <Label x:Name="Levellabel" Content="{x:Static res:Resources.level_text}" HorizontalAlignment="Left" Margin="181,0,0,54" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <Label x:Name="Pricelabel" Content="{x:Static res:Resources.price_text}" HorizontalAlignment="Left" Margin="242,0,0,54" VerticalAlignment="Bottom" Grid.Column="1" RenderTransformOrigin="4.658,0.551"/>
+        <TextBox x:Name="LevelTextBox" HorizontalAlignment="Left" Height="22" Margin="181,0,0,32" TextWrapping="Wrap" Text="1" VerticalAlignment="Bottom" Width="56" TextChanged="TextBox_TextChanged" Grid.Column="1" KeyDown="TextBox_KeyUp"/>
+        <TextBox x:Name="PriceTextBox" Margin="242,0,10,32" TextWrapping="Wrap" Text="0" TextChanged="TextBox_TextChanged" Height="22" VerticalAlignment="Bottom" Grid.Column="1" KeyDown="TextBox_KeyUp_1" Grid.ColumnSpan="3"/>
+        <Button x:Name="ButtonApplyChange" Content="{x:Static res:Resources.apply_change}" HorizontalAlignment="Left" Margin="181,0,0,6" Width="200" Grid.Column="1" Height="22" VerticalAlignment="Bottom" Click="ButtonApplyChange_Click" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button x:Name="ButtonAddLine" Content="{x:Static res:Resources.add_new}" HorizontalAlignment="Left" Margin="90,0,0,6" Width="200" Click="Button_Click" Grid.Column="2" Height="22" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="StealthClassnameComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="242,121,0,0" TextWrapping="Wrap" Text="{Binding ElementName=ClassnameComboBox, Path=Text}" VerticalAlignment="Top" Width="120" TextChanged="StealthClassnameComboBox_TextChanged" Visibility="Hidden" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="StealthRealnameComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="242,93,0,0" TextWrapping="Wrap" Text="{Binding Text, ElementName=RealNameComboBox}" VerticalAlignment="Top" Width="120" TextChanged="StealthRealnameComboBox_TextChanged" Visibility="Hidden" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="Label_engname" Content="{x:Static res:Resources.shopname_text_en}" HorizontalAlignment="Left" Margin="14,81,0,0" VerticalAlignment="Top" Width="148" Checked="Label_engname_Checked" Unchecked="Label_engname_Unchecked" ToolTip="{x:Static res:Resources.eng_version_mark}"/>
+
+    </Grid>
+</Window>

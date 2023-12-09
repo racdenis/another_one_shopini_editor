@@ -1,0 +1,22 @@
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\bin\Debug\SHOPINI Editor.exe.config
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\bin\Debug\SHOPINI Editor.exe
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\bin\Debug\SHOPINI Editor.pdb
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\MainWindow.g.cs
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\App.g.cs
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor_MarkupCompile.cache
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor_MarkupCompile.lref
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\MainWindow.baml
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor.g.resources
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor.csproj.GenerateResource.cache
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor.csproj.CoreCompileInputs.cache
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor.exe
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor.pdb
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\App.baml
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI_Editor.Properties.Resources.resources
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\bin\Debug\en-US\SHOPINI Editor.resources.dll
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\bin\Debug\ru-RU\SHOPINI Editor.resources.dll
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI_Editor.Properties.Resources.en-US.resources
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI_Editor.Properties.Resources.ru-RU.resources
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\en-US\SHOPINI Editor.resources.dll
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\ru-RU\SHOPINI Editor.resources.dll
+C:\Users\Pena\source\repos\SHOPINI Editor\SHOPINI Editor\obj\Debug\SHOPINI Editor.csproj.AssemblyReference.cache
