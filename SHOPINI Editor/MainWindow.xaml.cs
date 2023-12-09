@@ -541,7 +541,7 @@ namespace SHOPINI_Editor
 
                 foreach (string item in shopini_classnames)
                 {
-                    sw.WriteLine(String.Format(write_format, item, shopini_levels[i], shopini_prices[i].ToString("F2", CultureInfo.InvariantCulture)));
+                    sw.WriteLine(String.Format(write_format, item, shopini_levels[i], shopini_prices[i].ToString(CultureInfo.InvariantCulture)));
                     i++;
                 }
 
